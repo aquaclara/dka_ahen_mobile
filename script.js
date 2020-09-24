@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loadCount++ < 1) return;
     iframe.classList.add('loaded');
     caption.classList.add('loaded');
-    document.querySelector('caption .description').remove();
+    document.querySelector('#caption .description').remove();
     iframe.classList.remove('with-menu');
     iframe.onload = null;
     fab.style['opacity'] = '1';
