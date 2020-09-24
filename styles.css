@@ -73,7 +73,7 @@ body {
   transition-duration: var(--anim-time);
   transition-property: top, font-size;
 }
-#caption .description {
+#caption a {
   text-decoration: none;
   background: var(--lime);
   color: black;
