@@ -5,6 +5,7 @@ module.exports = {
   mode: 'production',
   entry: {
     script: './src/script.ts',
+    sw: './src/sw.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

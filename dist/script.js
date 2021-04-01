@@ -535,6 +535,9 @@ function onEnterMain(iframe, fab, caption) {
     collapseMenu();
 }
 function main() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/dist/sw.js');
+    }
     const iframe = document.querySelector('.frame');
     const fab = document.querySelector('.fab');
     const caption = document.querySelector('.caption');
