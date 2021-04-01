@@ -12,7 +12,7 @@
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(667);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _favicon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(592);
+/* harmony import */ var _favicon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(72);
 /* harmony import */ var _favicon_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_favicon_svg__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
@@ -418,10 +418,10 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ 592:
+/***/ 72:
 /***/ ((module) => {
 
-module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e %3cpath fill='white' d='M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z' /%3e%3c/svg%3e"
+module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e %3cpath stroke='none' fill='white' d='M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z' /%3e%3c/svg%3e"
 
 /***/ })
 
@@ -545,7 +545,6 @@ function main() {
     let loadCount = 0;
     iframe.addEventListener('load', (event) => {
         console.log('Loaded');
-        console.log(event);
         if (loadCount++ < 1)
             return;
         onEnterMain(iframe, fab, caption);
