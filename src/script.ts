@@ -48,7 +48,6 @@ function main() {
   let loadCount = 0;
   iframe.addEventListener('load', (event) => {
     console.log('Loaded');
-    console.log(event);
     if (loadCount++ < 1) return;
 
     onEnterMain(iframe, fab, caption);
