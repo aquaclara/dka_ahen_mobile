@@ -1,0 +1,96 @@
+$menu-width: 188px;
+$fab-size: 4rem;
+$fab-horizontal-margin: 1rem;
+$anim-time: 500ms;
+$lime: #cfff00;
+
+html {
+  overflow: hidden;
+}
+
+body,
+.frame,
+.fab,
+.caption {
+  position: absolute;
+}
+
+body {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.frame {
+  left: 0;
+  top: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  transition: margin $anim-time;
+
+  body.loaded & {
+    width: calc(100% + #{$menu-width});
+    margin-left: calc(#{$menu-width} * -1);
+  }
+
+  body.menu-opened & {
+    margin-left: 0;
+  }
+}
+
+.fab {
+  left: $fab-horizontal-margin;
+  body.menu-opened & {
+    left: calc(100% - #{$fab-size} - #{$fab-horizontal-margin});
+  }
+
+  bottom: 1rem;
+  z-index: 10;
+  width: $fab-size;
+  height: $fab-size;
+  background-color: black;
+  transition-property: opacity, left;
+  transition-duration: $anim-time;
+  background-image: url('../favicon.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  opacity: 1;
+  body:not(.loaded) & {
+    opacity: 0;
+  }
+}
+
+.caption {
+  z-index: 5;
+  text-align: center;
+  width: 100%;
+  font-size: 2em;
+  top: 50%;
+  background-color: black;
+  color: $lime;
+
+  br {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+    background: $lime;
+    color: black;
+  }
+
+  body.loaded & {
+    font-size: 0.5em;
+    mix-blend-mode: difference;
+    color: white;
+    top: 0;
+    transition-duration: $anim-time;
+    transition-property: top, font-size;
+  }
+}

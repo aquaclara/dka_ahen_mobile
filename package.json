@@ -1,0 +1,25 @@
+{
+  "name": "dka_ahen_mobile",
+  "repository": "git@github.com:aquaclara/dka_ahen_mobile.git",
+  "author": "aquaclara",
+  "license": "BSD-2-Clause",
+  "private": true,
+  "scripts": {
+    "test": "yarn run prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
+    "fix": "yarn run prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bitbar-webpack-progress-plugin": "^1.0.0",
+    "css-loader": "^5.2.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "svg-url-loader": "^7.1.1",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.3",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

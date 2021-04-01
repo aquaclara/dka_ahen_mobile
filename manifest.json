@@ -1,10 +1,12 @@
 {
- "name": "【非公式】読解アヘン - モバイルビュー",
- "icons": [{
-  "src": "https://fonts.gstatic.com/s/i/materialicons/stay_primary_portrait/v6/24px.svg",
-  "sizes": "24x24"
- }],
- "display": "standalone",
- "theme_color": "#cfff00",
- "background_color": "#cfff00"
+  "name": "【非公式】読解アヘン - モバイルビュー",
+  "icons": [
+    {
+      "src": "https://fonts.gstatic.com/s/i/materialicons/stay_primary_portrait/v6/24px.svg",
+      "sizes": "24x24"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#cfff00",
+  "background_color": "#cfff00"
 }
