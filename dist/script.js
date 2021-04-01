@@ -556,7 +556,7 @@ function main() {
         }
     });
 }
-(_a = navigator === null || navigator === void 0 ? void 0 : navigator.serviceWorker) === null || _a === void 0 ? void 0 : _a.register('dka_ahen_mobile/dist/sw.js');
+(_a = navigator === null || navigator === void 0 ? void 0 : navigator.serviceWorker) === null || _a === void 0 ? void 0 : _a.register('/dka_ahen_mobile/dist/sw.js');
 document.addEventListener('DOMContentLoaded', main);
 
 })();
