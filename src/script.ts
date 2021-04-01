@@ -37,7 +37,7 @@ function onEnterMain(
 
 function main() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/dist/sw.js');
+    navigator.serviceWorker.register('/dka_ahen_mobile/dist/sw.js');
   }
 
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
