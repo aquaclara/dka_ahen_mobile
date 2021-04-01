@@ -53,16 +53,21 @@ body {
   width: $fab-size;
   height: $fab-size;
   background-color: black;
-  transition-property: opacity, left;
-  transition-duration: $anim-time;
+  transition: left $anim-time, opacity 5000ms;
   background-image: url('../favicon.svg');
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
 
-  opacity: 1;
   body:not(.loaded) & {
-    opacity: 0;
+    visibility: hidden;
+    opacity: 1;
+  }
+
+  opacity: 5%;
+  &:hover {
+    opacity: 1;
+    transition: left $anim-time, opacity $anim-time;
   }
 }
 
