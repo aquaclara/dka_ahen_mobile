@@ -19,7 +19,12 @@ function toggleMenu() {
   else showMenu();
 }
 
-function onEnterMain(iframe: HTMLIFrameElement, fab: HTMLAnchorElement) {
+function onEnterMain(
+  iframe: HTMLIFrameElement,
+  fab: HTMLAnchorElement,
+  caption: HTMLAnchorElement
+) {
+  console.log('Entered');
   document.body.classList.add(CLASS_LOADED);
   iframe.classList.remove(CLASS_MENU_OPENED);
 
@@ -33,14 +38,26 @@ function onEnterMain(iframe: HTMLIFrameElement, fab: HTMLAnchorElement) {
 function main() {
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
   const fab: HTMLAnchorElement | null = document.querySelector('.fab');
+  const caption: HTMLAnchorElement | null = document.querySelector('.caption');
 
-  if (iframe === null || fab === null) return;
+  if (iframe === null || fab === null || caption === null) {
+    console.warn('Element not found');
+    return;
+  }
 
   let loadCount = 0;
   iframe.addEventListener('load', (event) => {
+    console.log('Loaded');
+    console.log(event);
     if (loadCount++ < 1) return;
 
-    onEnterMain(iframe, fab);
+    onEnterMain(iframe, fab, caption);
+  });
+
+  caption.addEventListener('click', (event) => {
+    if (loadCount > 1) {
+      onEnterMain(iframe, fab, caption);
+    }
   });
 }
 

@@ -21,7 +21,7 @@
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()((_favicon_svg__WEBPACK_IMPORTED_MODULE_2___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html{overflow:hidden}body,.frame,.fab,.caption{position:absolute}body{left:0;top:0;width:100%;height:100%;overflow-x:hidden;margin:0}.frame{left:0;top:0;border:none;width:100%;height:100%;transition:margin 500ms}body.loaded .frame{width:calc(100% + 188px);margin-left:calc(188px * -1)}body.menu-opened .frame{margin-left:0}.fab{left:1rem;bottom:1rem;z-index:10;width:4rem;height:4rem;background-color:#000;transition-property:opacity,left;transition-duration:500ms;background-image:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");background-size:60%;background-repeat:no-repeat;background-position:center;opacity:1}body.menu-opened .fab{left:calc(100% - 4rem - 1rem)}body:not(.loaded) .fab{opacity:0}.caption{z-index:5;text-align:center;width:100%;font-size:2em;top:50%;background-color:#000;color:#cfff00}.caption br{display:none}.caption a{text-decoration:none;background:#cfff00;color:#000}body.loaded .caption{font-size:.5em;mix-blend-mode:difference;color:#fff;top:0;transition-duration:500ms;transition-property:top,font-size}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html{overflow:hidden}body,.frame,.fab,.caption{position:absolute}body{left:0;top:0;width:100%;height:100%;overflow-x:hidden;margin:0}.frame{left:0;top:0;border:none;width:100%;height:100%;transition:margin 500ms}body.loaded .frame{width:calc(100% + 188px);margin-left:calc(188px * -1)}body.menu-opened .frame{margin-left:0}.fab{left:1rem;bottom:1rem;z-index:10;width:4rem;height:4rem;background-color:#000;transition-property:opacity,left;transition-duration:500ms;background-image:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");background-size:60%;background-repeat:no-repeat;background-position:center;opacity:1}body.menu-opened .fab{left:calc(100% - 4rem - 1rem)}body:not(.loaded) .fab{opacity:0}.caption{z-index:5;text-align:center;width:100%;font-size:2em;top:50%;background-color:#000;color:#cfff00;text-decoration:none;cursor:auto}.caption br{display:none}body.loaded .caption{font-size:.5em;cursor:pointer;mix-blend-mode:difference;color:#fff;top:0;transition-duration:500ms;transition-property:top,font-size}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -525,7 +525,8 @@ function toggleMenu() {
     else
         showMenu();
 }
-function onEnterMain(iframe, fab) {
+function onEnterMain(iframe, fab, caption) {
+    console.log('Entered');
     document.body.classList.add(CLASS_LOADED);
     iframe.classList.remove(CLASS_MENU_OPENED);
     fab.addEventListener('click', (event) => {
@@ -536,13 +537,23 @@ function onEnterMain(iframe, fab) {
 function main() {
     const iframe = document.querySelector('.frame');
     const fab = document.querySelector('.fab');
-    if (iframe === null || fab === null)
+    const caption = document.querySelector('.caption');
+    if (iframe === null || fab === null || caption === null) {
+        console.warn('Element not found');
         return;
+    }
     let loadCount = 0;
     iframe.addEventListener('load', (event) => {
+        console.log('Loaded');
+        console.log(event);
         if (loadCount++ < 1)
             return;
-        onEnterMain(iframe, fab);
+        onEnterMain(iframe, fab, caption);
+    });
+    caption.addEventListener('click', (event) => {
+        if (loadCount > 1) {
+            onEnterMain(iframe, fab, caption);
+        }
     });
 }
 document.addEventListener('DOMContentLoaded', main);
