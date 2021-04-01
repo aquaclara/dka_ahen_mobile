@@ -5,13 +5,8 @@
   "theme_color": "#cfff00",
   "icons": [
     {
-      "src": "icon/favicon.svg",
-      "sizes": "24x24",
-      "type": "image/svg+xml"
-    },
-    {
       "src": "icon/favicon.png",
-      "sizes": "24x24",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ],

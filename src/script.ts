@@ -36,10 +36,6 @@ function onEnterMain(
 }
 
 function main() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/dka_ahen_mobile/dist/sw.js');
-  }
-
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
   const fab: HTMLAnchorElement | null = document.querySelector('.fab');
   const caption: HTMLAnchorElement | null = document.querySelector('.caption');
@@ -64,4 +60,5 @@ function main() {
   });
 }
 
+navigator?.serviceWorker?.register('dka_ahen_mobile/dist/sw.js');
 document.addEventListener('DOMContentLoaded', main);

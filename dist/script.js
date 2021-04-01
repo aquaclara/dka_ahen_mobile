@@ -507,6 +507,7 @@ var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
 
 /* harmony default export */ const src_styles = (styles/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/script.ts
+var _a;
 
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
@@ -535,9 +536,6 @@ function onEnterMain(iframe, fab, caption) {
     collapseMenu();
 }
 function main() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/dka_ahen_mobile/dist/sw.js');
-    }
     const iframe = document.querySelector('.frame');
     const fab = document.querySelector('.fab');
     const caption = document.querySelector('.caption');
@@ -558,6 +556,7 @@ function main() {
         }
     });
 }
+(_a = navigator === null || navigator === void 0 ? void 0 : navigator.serviceWorker) === null || _a === void 0 ? void 0 : _a.register('dka_ahen_mobile/dist/sw.js');
 document.addEventListener('DOMContentLoaded', main);
 
 })();
