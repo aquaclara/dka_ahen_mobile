@@ -12,14 +12,14 @@
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(667);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _favicon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(72);
-/* harmony import */ var _favicon_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_favicon_svg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _icon_favicon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(972);
+/* harmony import */ var _icon_favicon_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_icon_favicon_svg__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()((_favicon_svg__WEBPACK_IMPORTED_MODULE_2___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()((_icon_favicon_svg__WEBPACK_IMPORTED_MODULE_2___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "html{overflow:hidden}body,.frame,.fab,.caption{position:absolute}body{left:0;top:0;width:100%;height:100%;overflow-x:hidden;margin:0}.frame{left:0;top:0;border:none;width:100%;height:100%;transition:margin 500ms}body.loaded .frame{width:calc(100% + 188px);margin-left:calc(188px * -1)}body.menu-opened .frame{margin-left:0}.fab{left:1rem;bottom:1rem;z-index:10;width:4rem;height:4rem;background-color:#000;transition:left 500ms,opacity 5000ms;background-image:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");background-size:60%;background-repeat:no-repeat;background-position:center;opacity:5%}body.menu-opened .fab{left:calc(100% - 4rem - 1rem)}body:not(.loaded) .fab{visibility:hidden;opacity:1}.fab:hover{opacity:1;transition:left 500ms,opacity 500ms}.caption{z-index:5;text-align:center;width:100%;font-size:2em;top:50%;background-color:#000;color:#cfff00;text-decoration:none;cursor:auto}.caption br{display:none}body.loaded .caption{font-size:.5em;cursor:pointer;mix-blend-mode:difference;color:#fff;top:0;transition-duration:500ms;transition-property:top,font-size}", ""]);
 // Exports
@@ -418,7 +418,7 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ 72:
+/***/ 972:
 /***/ ((module) => {
 
 module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e %3cpath stroke='none' fill='white' d='M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z' /%3e%3c/svg%3e"
