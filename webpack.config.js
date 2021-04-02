@@ -6,10 +6,10 @@ module.exports = {
   entry: {
     script: './src/script.ts',
     sw: './src/sw.ts',
+    styles: './src/styles.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
   },
   module: {
     rules: [
@@ -20,7 +20,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          { loader: 'file-loader', options: { name: '[name].css' } },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                outputStyle: 'expanded',
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,

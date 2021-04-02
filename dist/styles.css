@@ -1,0 +1,85 @@
+html {
+  overflow: hidden;
+}
+
+body,
+.frame,
+.fab,
+.caption {
+  position: absolute;
+}
+
+body {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.frame {
+  left: 0;
+  top: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  transition: margin 500ms;
+}
+body.loaded .frame {
+  width: calc(100% + 188px);
+  margin-left: calc(188px * -1);
+}
+body.menu-opened .frame {
+  margin-left: 0;
+}
+
+.fab {
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  width: 4rem;
+  height: 4rem;
+  background-color: black;
+  transition: left 500ms, opacity 5000ms;
+  background-image: url("/icon/favicon.svg");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 5%;
+}
+body.menu-opened .fab {
+  left: calc(100% - 4rem - 1rem);
+}
+body:not(.loaded) .fab {
+  visibility: hidden;
+  opacity: 1;
+}
+.fab:hover {
+  opacity: 1;
+  transition: left 500ms, opacity 500ms;
+}
+
+.caption {
+  z-index: 5;
+  text-align: center;
+  width: 100%;
+  font-size: 2em;
+  top: 50%;
+  background-color: black;
+  color: #cfff00;
+  text-decoration: none;
+  cursor: auto;
+}
+.caption br {
+  display: none;
+}
+body.loaded .caption {
+  font-size: 0.5em;
+  cursor: pointer;
+  mix-blend-mode: difference;
+  color: white;
+  top: 0;
+  transition-duration: 500ms;
+  transition-property: top, font-size;
+}

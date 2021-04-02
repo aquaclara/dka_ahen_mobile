@@ -1,5 +1,3 @@
-import './styles.scss';
-
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
 let menuIsVisible = false;
