@@ -42,7 +42,7 @@ body.menu-opened .frame {
   height: 4rem;
   background-color: black;
   transition: left 500ms, opacity 5000ms;
-  background-image: url("/icon/favicon.svg");
+  background-image: url("../icon/favicon.svg");
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
