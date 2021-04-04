@@ -58,5 +58,4 @@ function main() {
   });
 }
 
-navigator?.serviceWorker?.register('/dka_ahen_mobile/dist/sw.js');
 document.addEventListener('DOMContentLoaded', main);

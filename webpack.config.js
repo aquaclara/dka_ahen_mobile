@@ -5,7 +5,6 @@ module.exports = {
   mode: 'production',
   entry: {
     script: './src/script.ts',
-    sw: './src/sw.ts',
     styles: './src/styles.scss',
   },
   output: {
