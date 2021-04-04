@@ -47,7 +47,7 @@ function main() {
   let loadCount = 0;
   iframe.addEventListener('load', (event) => {
     console.log('Loaded');
-    if (loadCount++ < 1) return;
+    if (loadCount++ != 1) return;
 
     onEnterMain(iframe, fab, caption);
   });
@@ -55,12 +55,7 @@ function main() {
   overlay.addEventListener('click', (event) => {
     iframe.src = 'https://dka-hero.me/top.html';
     overlay.remove();
-  });
-
-  caption.addEventListener('click', (event) => {
-    if (loadCount > 1) {
-      onEnterMain(iframe, fab, caption);
-    }
+    onEnterMain(iframe, fab, caption);
   });
 }
 

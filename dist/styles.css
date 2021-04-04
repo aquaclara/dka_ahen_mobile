@@ -40,6 +40,8 @@ body.menu-opened .frame {
   right: 0;
   bottom: 0;
   top: 0;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .fab {
@@ -54,6 +56,7 @@ body.menu-opened .frame {
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
   opacity: 5%;
 }
 body.menu-opened .fab {
