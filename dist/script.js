@@ -2,7 +2,6 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-var _a;
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
 let menuIsVisible = false;
@@ -31,9 +30,10 @@ function onEnterMain(iframe, fab, caption) {
 }
 function main() {
     const iframe = document.querySelector('.frame');
+    const overlay = document.querySelector('.overlay');
     const fab = document.querySelector('.fab');
     const caption = document.querySelector('.caption');
-    if (iframe === null || fab === null || caption === null) {
+    if (iframe === null || overlay === null || fab === null || caption === null) {
         console.warn('Element not found');
         return;
     }
@@ -44,13 +44,16 @@ function main() {
             return;
         onEnterMain(iframe, fab, caption);
     });
+    overlay.addEventListener('click', (event) => {
+        iframe.src = 'https://dka-hero.me/top.html';
+        overlay.remove();
+    });
     caption.addEventListener('click', (event) => {
         if (loadCount > 1) {
             onEnterMain(iframe, fab, caption);
         }
     });
 }
-(_a = navigator === null || navigator === void 0 ? void 0 : navigator.serviceWorker) === null || _a === void 0 ? void 0 : _a.register('/dka_ahen_mobile/dist/sw.js');
 document.addEventListener('DOMContentLoaded', main);
 
 /******/ })()

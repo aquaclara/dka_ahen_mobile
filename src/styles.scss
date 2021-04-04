@@ -10,6 +10,7 @@ html {
 
 body,
 .frame,
+.overlay,
 .fab,
 .caption {
   position: absolute;
@@ -40,6 +41,13 @@ body {
   body.menu-opened & {
     margin-left: 0;
   }
+}
+
+.overlay {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
 .fab {
@@ -76,6 +84,7 @@ body {
   text-align: center;
   width: 100%;
   font-size: 2em;
+  line-height: 2em;
   top: 50%;
   background-color: black;
   color: $lime;

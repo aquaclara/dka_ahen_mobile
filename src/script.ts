@@ -35,10 +35,11 @@ function onEnterMain(
 
 function main() {
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
+  const overlay: HTMLDivElement | null = document.querySelector('.overlay');
   const fab: HTMLAnchorElement | null = document.querySelector('.fab');
   const caption: HTMLAnchorElement | null = document.querySelector('.caption');
 
-  if (iframe === null || fab === null || caption === null) {
+  if (iframe === null || overlay === null || fab === null || caption === null) {
     console.warn('Element not found');
     return;
   }
@@ -49,6 +50,11 @@ function main() {
     if (loadCount++ < 1) return;
 
     onEnterMain(iframe, fab, caption);
+  });
+
+  overlay.addEventListener('click', (event) => {
+    iframe.src = 'https://dka-hero.me/top.html';
+    overlay.remove();
   });
 
   caption.addEventListener('click', (event) => {
