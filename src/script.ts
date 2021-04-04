@@ -22,15 +22,38 @@ function onEnterMain(
   fab: HTMLAnchorElement,
   caption: HTMLAnchorElement
 ) {
-  console.log('Entered');
+  console.debug('Entered');
   document.body.classList.add(CLASS_LOADED);
   iframe.classList.remove(CLASS_MENU_OPENED);
 
-  fab.addEventListener('click', (event) => {
+  collapseMenu();
+}
+
+function addEventListeners(
+  iframe: HTMLIFrameElement,
+  overlay: HTMLDivElement,
+  fab: HTMLAnchorElement,
+  caption: HTMLAnchorElement
+) {
+  let loadCount = 0;
+  iframe.addEventListener('load', (event) => {
+    console.debug('Loaded');
+    if (loadCount++ != 1) return;
+
+    onEnterMain(iframe, fab, caption);
+  });
+
+  fab.addEventListener('click', (event: MouseEvent) => {
+    console.debug('Fab clicked');
     toggleMenu();
   });
 
-  collapseMenu();
+  overlay.addEventListener('click', (event: MouseEvent) => {
+    console.debug('Overlay clicked');
+    iframe.src = 'https://dka-hero.me/top.html';
+    onEnterMain(iframe, fab, caption);
+    overlay.remove();
+  });
 }
 
 function main() {
@@ -44,19 +67,7 @@ function main() {
     return;
   }
 
-  let loadCount = 0;
-  iframe.addEventListener('load', (event) => {
-    console.log('Loaded');
-    if (loadCount++ != 1) return;
-
-    onEnterMain(iframe, fab, caption);
-  });
-
-  overlay.addEventListener('click', (event) => {
-    iframe.src = 'https://dka-hero.me/top.html';
-    overlay.remove();
-    onEnterMain(iframe, fab, caption);
-  });
+  addEventListeners(iframe, overlay, fab, caption);
 }
 
 document.addEventListener('DOMContentLoaded', main);
