@@ -81,14 +81,12 @@ body:not(.loaded) .fab {
   background-color: black;
   color: #cfff00;
   text-decoration: none;
-  cursor: auto;
 }
 .caption br {
   display: none;
 }
 body.loaded .caption {
   font-size: 0.5em;
-  cursor: pointer;
   mix-blend-mode: difference;
   color: white;
   top: 0;
