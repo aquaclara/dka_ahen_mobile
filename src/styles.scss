@@ -32,6 +32,12 @@ body {
   width: 100%;
   height: 100%;
   transition: margin $anim-time;
+  background-color: $lime;
+
+  body:not(.loaded) & {
+    padding-top: 10vh;
+    overflow: hidden;
+  }
 
   body.loaded & {
     width: calc(100% + #{$menu-width});
@@ -92,10 +98,6 @@ body {
   background-color: black;
   color: $lime;
   text-decoration: none;
-
-  br {
-    display: none;
-  }
 
   body.loaded & {
     font-size: 0.5em;
