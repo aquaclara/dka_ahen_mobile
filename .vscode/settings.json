@@ -3,7 +3,7 @@
     {
       "match": ".js|.tsx?|.s?css|.svg",
       "isAsync": true,
-      "cmd": "yarn --cwd '${workspaceRoot}' webpack",
+      "cmd": "npm --prefix '${workspaceRoot}' run build",
       "event": "onFileChange"
     }
   ]

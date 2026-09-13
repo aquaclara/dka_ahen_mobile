@@ -5,8 +5,9 @@
   "license": "BSD-2-Clause",
   "private": true,
   "scripts": {
-    "test": "yarn run prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
-    "fix": "yarn run prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
+    "build": "webpack",
+    "test": "prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
+    "fix": "prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
   },
   "dependencies": {},
   "devDependencies": {
