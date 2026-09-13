@@ -1,10 +1,10 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
   mode: 'production',
   entry: {
     script: './src/script.ts',
-    styles: './src/styles.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -19,7 +19,8 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          { loader: 'file-loader', options: { name: '[name].css' } },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -32,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'svg-url-loader',
+        type: 'asset/inline',
       },
     ],
   },
@@ -42,4 +43,5 @@ module.exports = {
   optimization: {
     minimize: false,
   },
+  plugins: [new MiniCssExtractPlugin({ filename: 'styles.css' })],
 };

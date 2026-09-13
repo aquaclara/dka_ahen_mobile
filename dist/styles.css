@@ -62,7 +62,7 @@ body.menu-opened .fab {
   height: 4rem;
   background-color: black;
   transition: left 500ms, opacity 5000ms;
-  background-image: url("../icon/favicon.svg");
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBzdHJva2U9Im5vbmUiIGZpbGw9IndoaXRlIiBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6IiAvPjwvc3ZnPgo=);
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
