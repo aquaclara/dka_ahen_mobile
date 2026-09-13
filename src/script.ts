@@ -20,7 +20,7 @@ function toggleMenu() {
 function onEnterMain(
   iframe: HTMLIFrameElement,
   fab: HTMLAnchorElement,
-  caption: HTMLAnchorElement
+  caption: HTMLAnchorElement,
 ) {
   console.debug('Entered');
   document.body.classList.add(CLASS_LOADED);
@@ -33,7 +33,7 @@ function addEventListeners(
   iframe: HTMLIFrameElement,
   overlay: HTMLDivElement,
   fab: HTMLAnchorElement,
-  caption: HTMLAnchorElement
+  caption: HTMLAnchorElement,
 ) {
   let loadCount = 0;
   iframe.addEventListener('load', (event) => {

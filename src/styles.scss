@@ -69,7 +69,9 @@ body {
   width: $fab-size;
   height: $fab-size;
   background-color: black;
-  transition: left $anim-time, opacity 5000ms;
+  transition:
+    left $anim-time,
+    opacity 5000ms;
   background-image: url('../icon/favicon.svg');
   background-size: 60%;
   background-repeat: no-repeat;
@@ -84,7 +86,9 @@ body {
   opacity: 5%;
   &:hover {
     opacity: 1;
-    transition: left $anim-time, opacity $anim-time;
+    transition:
+      left $anim-time,
+      opacity $anim-time;
   }
 }
 
