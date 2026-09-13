@@ -13,7 +13,7 @@ npm ci
 npm run build
 ```
 
-GitHub Pages はリポジトリの `dist/` をそのまま配信するため、`src/` を変更したら `npm run build` の結果も一緒にコミットする。
+`main` に push すると GitHub Actions がビルドして GitHub Pages に配信する。`dist/` はコミットしない。
 
 ```sh
 npm test          # Prettier で整形を検査
