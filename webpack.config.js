@@ -13,7 +13,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'esbuild-loader',
+        options: {
+          target: 'es2015',
+        },
         exclude: /node_modules/,
       },
       {
