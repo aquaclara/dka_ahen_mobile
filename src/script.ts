@@ -20,6 +20,7 @@ function addEventListeners(
   iframe: HTMLIFrameElement,
   overlay: HTMLButtonElement,
   fab: HTMLButtonElement,
+  scrim: HTMLButtonElement,
 ) {
   let loadCount = 0;
   iframe.addEventListener('load', () => {
@@ -31,8 +32,8 @@ function addEventListeners(
     toggleMenu(fab);
   });
 
-  window.addEventListener('blur', () => {
-    if (document.activeElement === iframe) collapseMenu(fab);
+  scrim.addEventListener('click', () => {
+    collapseMenu(fab);
   });
 
   overlay.addEventListener('click', () => {
@@ -46,13 +47,14 @@ function main() {
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
   const overlay: HTMLButtonElement | null = document.querySelector('.overlay');
   const fab: HTMLButtonElement | null = document.querySelector('.fab');
+  const scrim: HTMLButtonElement | null = document.querySelector('.scrim');
 
-  if (iframe === null || overlay === null || fab === null) {
+  if (iframe === null || overlay === null || fab === null || scrim === null) {
     console.warn('Element not found');
     return;
   }
 
-  addEventListeners(iframe, overlay, fab);
+  addEventListeners(iframe, overlay, fab, scrim);
 }
 
 document.addEventListener('DOMContentLoaded', main);
