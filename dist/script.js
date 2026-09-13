@@ -3,29 +3,31 @@
 
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
-function collapseMenu() {
+function collapseMenu(fab) {
     document.body.classList.remove(CLASS_MENU_OPENED);
+    fab.setAttribute('aria-expanded', 'false');
 }
-function toggleMenu() {
-    document.body.classList.toggle(CLASS_MENU_OPENED);
+function toggleMenu(fab) {
+    const opened = document.body.classList.toggle(CLASS_MENU_OPENED);
+    fab.setAttribute('aria-expanded', String(opened));
 }
-function onEnterMain() {
+function onEnterMain(fab) {
     document.body.classList.add(CLASS_LOADED);
-    collapseMenu();
+    collapseMenu(fab);
 }
 function addEventListeners(iframe, overlay, fab) {
     let loadCount = 0;
     iframe.addEventListener('load', () => {
         if (loadCount++ === 0)
             return;
-        onEnterMain();
+        onEnterMain(fab);
     });
     fab.addEventListener('click', () => {
-        toggleMenu();
+        toggleMenu(fab);
     });
     overlay.addEventListener('click', () => {
         iframe.src = 'https://dka-hero.me/top.html';
-        onEnterMain();
+        onEnterMain(fab);
         overlay.remove();
     });
 }

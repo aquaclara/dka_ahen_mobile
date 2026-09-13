@@ -56,6 +56,12 @@ body {
   top: 0;
   z-index: 10;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .fab {
@@ -77,6 +83,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 
   body:not(.loaded) & {
     visibility: hidden;
@@ -101,7 +112,7 @@ body {
   top: 50%;
   background-color: black;
   color: $lime;
-  text-decoration: none;
+  margin: 0;
 
   body.loaded & {
     font-size: 0.5em;

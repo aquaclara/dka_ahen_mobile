@@ -3,45 +3,47 @@ import './styles.scss';
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
 
-function collapseMenu() {
+function collapseMenu(fab: HTMLButtonElement) {
   document.body.classList.remove(CLASS_MENU_OPENED);
+  fab.setAttribute('aria-expanded', 'false');
 }
 
-function toggleMenu() {
-  document.body.classList.toggle(CLASS_MENU_OPENED);
+function toggleMenu(fab: HTMLButtonElement) {
+  const opened = document.body.classList.toggle(CLASS_MENU_OPENED);
+  fab.setAttribute('aria-expanded', String(opened));
 }
 
-function onEnterMain() {
+function onEnterMain(fab: HTMLButtonElement) {
   document.body.classList.add(CLASS_LOADED);
-  collapseMenu();
+  collapseMenu(fab);
 }
 
 function addEventListeners(
   iframe: HTMLIFrameElement,
-  overlay: HTMLDivElement,
-  fab: HTMLAnchorElement,
+  overlay: HTMLButtonElement,
+  fab: HTMLButtonElement,
 ) {
   let loadCount = 0;
   iframe.addEventListener('load', () => {
     if (loadCount++ === 0) return;
-    onEnterMain();
+    onEnterMain(fab);
   });
 
   fab.addEventListener('click', () => {
-    toggleMenu();
+    toggleMenu(fab);
   });
 
   overlay.addEventListener('click', () => {
     iframe.src = 'https://dka-hero.me/top.html';
-    onEnterMain();
+    onEnterMain(fab);
     overlay.remove();
   });
 }
 
 function main() {
   const iframe: HTMLIFrameElement | null = document.querySelector('.frame');
-  const overlay: HTMLDivElement | null = document.querySelector('.overlay');
-  const fab: HTMLAnchorElement | null = document.querySelector('.fab');
+  const overlay: HTMLButtonElement | null = document.querySelector('.overlay');
+  const fab: HTMLButtonElement | null = document.querySelector('.fab');
 
   if (iframe === null || overlay === null || fab === null) {
     console.warn('Element not found');
