@@ -3,43 +3,29 @@
 
 const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
-let menuIsVisible = false;
 function collapseMenu() {
-    menuIsVisible = false;
     document.body.classList.remove(CLASS_MENU_OPENED);
 }
-function showMenu() {
-    menuIsVisible = true;
-    document.body.classList.add(CLASS_MENU_OPENED);
-}
 function toggleMenu() {
-    if (menuIsVisible)
-        collapseMenu();
-    else
-        showMenu();
+    document.body.classList.toggle(CLASS_MENU_OPENED);
 }
-function onEnterMain(iframe, fab, caption) {
-    console.debug('Entered');
+function onEnterMain() {
     document.body.classList.add(CLASS_LOADED);
-    iframe.classList.remove(CLASS_MENU_OPENED);
     collapseMenu();
 }
-function addEventListeners(iframe, overlay, fab, caption) {
+function addEventListeners(iframe, overlay, fab) {
     let loadCount = 0;
-    iframe.addEventListener('load', (event) => {
-        console.debug('Loaded');
-        if (loadCount++ != 1)
+    iframe.addEventListener('load', () => {
+        if (loadCount++ === 0)
             return;
-        onEnterMain(iframe, fab, caption);
+        onEnterMain();
     });
-    fab.addEventListener('click', (event) => {
-        console.debug('Fab clicked');
+    fab.addEventListener('click', () => {
         toggleMenu();
     });
-    overlay.addEventListener('click', (event) => {
-        console.debug('Overlay clicked');
+    overlay.addEventListener('click', () => {
         iframe.src = 'https://dka-hero.me/top.html';
-        onEnterMain(iframe, fab, caption);
+        onEnterMain();
         overlay.remove();
     });
 }
@@ -47,12 +33,11 @@ function main() {
     const iframe = document.querySelector('.frame');
     const overlay = document.querySelector('.overlay');
     const fab = document.querySelector('.fab');
-    const caption = document.querySelector('.caption');
-    if (iframe === null || overlay === null || fab === null || caption === null) {
+    if (iframe === null || overlay === null || fab === null) {
         console.warn('Element not found');
         return;
     }
-    addEventListeners(iframe, overlay, fab, caption);
+    addEventListeners(iframe, overlay, fab);
 }
 document.addEventListener('DOMContentLoaded', main);
 
