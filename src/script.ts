@@ -31,6 +31,10 @@ function addEventListeners(
     toggleMenu(fab);
   });
 
+  window.addEventListener('blur', () => {
+    if (document.activeElement === iframe) collapseMenu(fab);
+  });
+
   overlay.addEventListener('click', () => {
     iframe.src = 'https://dka-hero.me/top.html';
     onEnterMain(fab);
