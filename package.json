@@ -9,9 +9,7 @@
     "test": "prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
     "fix": "prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
   },
-  "dependencies": {},
   "devDependencies": {
-    "bitbar-webpack-progress-plugin": "^1.0.0",
     "css-loader": "^7.1.5",
     "file-loader": "^6.2.0",
     "prettier": "^3.9.6",

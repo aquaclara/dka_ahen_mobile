@@ -1,4 +1,3 @@
-const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin');
 const path = require('path');
 
 module.exports = {
@@ -43,5 +42,4 @@ module.exports = {
   optimization: {
     minimize: false,
   },
-  plugins: [new BitBarWebpackProgressPlugin()],
 };
