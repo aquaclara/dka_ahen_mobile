@@ -5,21 +5,15 @@
   "license": "BSD-2-Clause",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "build": "tsc --project src/tsconfig.json && sass src/styles.scss dist/styles.css --style=expanded --no-source-map",
     "typecheck": "tsc --noEmit --project src/tsconfig.json",
     "test": "prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
     "fix": "prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
   },
   "devDependencies": {
-    "css-loader": "^7.1.5",
-    "esbuild-loader": "^4.5.0",
-    "mini-css-extract-plugin": "^2.10.2",
     "prettier": "^3.9.6",
     "sass": "^1.104.1",
-    "sass-loader": "^17.0.1",
-    "typescript": "^7.0.2",
-    "webpack": "^5.110.3",
-    "webpack-cli": "^7.2.3"
+    "typescript": "^7.0.2"
   },
   "prettier": {
     "singleQuote": true
