@@ -13,6 +13,7 @@ body,
 .overlay,
 .scrim,
 .fab,
+.fit,
 .caption {
   position: absolute;
 }
@@ -26,6 +27,8 @@ body {
   overflow-x: hidden;
   margin: 0;
   background-color: $lime;
+  --fit: 420px;
+  --scale: 1;
 }
 
 .frame {
@@ -36,7 +39,8 @@ body {
   height: calc(
     100% - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
   );
-  transition: margin $anim-time;
+  transform-origin: 0 0;
+  transition: transform $anim-time;
   background-color: $lime;
 
   body:not(.loaded) & {
@@ -45,12 +49,21 @@ body {
   }
 
   body.loaded & {
-    width: calc(100% + #{$menu-width});
-    margin-left: calc(#{$menu-width} * -1);
+    width: calc(#{$menu-width} + var(--fit));
+    height: calc(
+      (
+          100% - env(safe-area-inset-top, 0px) - env(
+              safe-area-inset-bottom,
+              0px
+            )
+        ) /
+        var(--scale)
+    );
+    transform: scale(var(--scale)) translateX(calc(#{$menu-width} * -1));
   }
 
   body.menu-opened & {
-    margin-left: 0;
+    transform: scale(var(--scale));
   }
 }
 
@@ -70,7 +83,7 @@ body {
 }
 
 .scrim {
-  left: $menu-width;
+  left: calc(#{$menu-width} * var(--scale));
   right: 0;
   top: 0;
   bottom: 0;
@@ -82,6 +95,27 @@ body {
   border: none;
   padding: 0;
   background: none;
+  -webkit-tap-highlight-color: transparent;
+
+  body.menu-opened & {
+    display: block;
+  }
+}
+
+.fit {
+  right: calc(#{$fab-size} + #{$fab-horizontal-margin} * 2);
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  height: $fab-size;
+  padding: 0 1rem;
+  display: none;
+  background-color: black;
+  color: $lime;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
   -webkit-tap-highlight-color: transparent;
 
   body.menu-opened & {
