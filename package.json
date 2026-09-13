@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "typecheck": "tsc --noEmit --project src/tsconfig.json",
     "test": "prettier --check \"**/*.{js,ts,json,scss,html,css,md}\"",
     "fix": "prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
   },
