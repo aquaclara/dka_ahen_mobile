@@ -185,6 +185,7 @@ body {
   background-color: black;
   color: $lime;
   margin: 0;
+  pointer-events: none;
 
   body.loaded & {
     font-size: 0.5em;

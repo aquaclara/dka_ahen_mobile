@@ -15,9 +15,13 @@ function toggleMenu(fab: HTMLButtonElement) {
   fab.setAttribute('aria-expanded', String(opened));
 }
 
-function onEnterMain(fab: HTMLButtonElement) {
-  document.body.classList.add(CLASS_LOADED);
+function setLoaded(loaded: boolean, fab: HTMLButtonElement) {
+  document.body.classList.toggle(CLASS_LOADED, loaded);
   collapseMenu(fab);
+}
+
+function isInsideFrameset(iframe: HTMLIFrameElement) {
+  return iframe.contentWindow !== null && iframe.contentWindow.length > 0;
 }
 
 function loadFit(): number {
@@ -56,14 +60,12 @@ function addEventListeners(
   scrim: HTMLButtonElement,
   fit: HTMLButtonElement,
 ) {
-  let loadCount = 0;
   let fitWidth = loadFit();
   applySplashScale();
   applyFit(fitWidth, fit);
 
   iframe.addEventListener('load', () => {
-    if (loadCount++ === 0) return;
-    onEnterMain(fab);
+    setLoaded(isInsideFrameset(iframe), fab);
   });
 
   fab.addEventListener('click', () => {
@@ -88,7 +90,7 @@ function addEventListeners(
 
   overlay.addEventListener('click', () => {
     iframe.src = 'https://dka-hero.me/top.html';
-    onEnterMain(fab);
+    setLoaded(true, fab);
     overlay.remove();
   });
 }
