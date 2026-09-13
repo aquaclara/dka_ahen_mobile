@@ -2,6 +2,7 @@ const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
 const FIT_WIDTHS = [350, 420, 600];
 const FIT_KEY = 'fit';
+const SPLASH_WIDTH = 600;
 
 function collapseMenu(fab: HTMLButtonElement) {
   document.body.classList.remove(CLASS_MENU_OPENED);
@@ -32,6 +33,14 @@ function saveFit(width: number) {
   } catch {}
 }
 
+function applySplashScale() {
+  const scale = Math.min(
+    1,
+    document.documentElement.clientWidth / SPLASH_WIDTH,
+  );
+  document.body.style.setProperty('--splash-scale', String(scale));
+}
+
 function applyFit(width: number, fit: HTMLButtonElement) {
   const scale = document.documentElement.clientWidth / width;
   document.body.style.setProperty('--fit', `${width}px`);
@@ -48,6 +57,7 @@ function addEventListeners(
 ) {
   let loadCount = 0;
   let fitWidth = loadFit();
+  applySplashScale();
   applyFit(fitWidth, fit);
 
   iframe.addEventListener('load', () => {
@@ -71,6 +81,7 @@ function addEventListeners(
   });
 
   window.addEventListener('resize', () => {
+    applySplashScale();
     applyFit(fitWidth, fit);
   });
 

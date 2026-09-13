@@ -29,6 +29,7 @@ body {
   background-color: $lime;
   --fit: 420px;
   --scale: 1;
+  --splash-scale: 1;
 }
 
 .frame {
@@ -44,8 +45,20 @@ body {
   background-color: $lime;
 
   body:not(.loaded) & {
-    padding-top: 10vh;
+    width: calc(100% / var(--splash-scale));
+    height: calc(
+      (
+          100% - env(safe-area-inset-top, 0px) - env(
+              safe-area-inset-bottom,
+              0px
+            )
+        ) /
+        var(--splash-scale)
+    );
+    padding-top: calc(10vh / var(--splash-scale));
     overflow: hidden;
+    transform: scale(var(--splash-scale));
+    transition: none;
   }
 
   body.loaded & {
