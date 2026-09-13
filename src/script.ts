@@ -2,6 +2,7 @@ const CLASS_LOADED = 'loaded';
 const CLASS_MENU_OPENED = 'menu-opened';
 const FIT_WIDTHS = [350, 420, 600];
 const FIT_KEY = 'fit';
+const FIT_MARGIN = 16;
 const SPLASH_WIDTH = 600;
 
 function collapseMenu(fab: HTMLButtonElement) {
@@ -42,8 +43,8 @@ function applySplashScale() {
 }
 
 function applyFit(width: number, fit: HTMLButtonElement) {
-  const scale = document.documentElement.clientWidth / width;
-  document.body.style.setProperty('--fit', `${width}px`);
+  const scale = document.documentElement.clientWidth / (width + FIT_MARGIN);
+  document.body.style.setProperty('--fit', `${width + FIT_MARGIN}px`);
   document.body.style.setProperty('--scale', String(scale));
   fit.textContent = `幅 ${width}`;
 }
