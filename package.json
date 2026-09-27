@@ -11,7 +11,7 @@
     "fix": "prettier --write \"**/*.{js,ts,json,scss,html,css,md}\""
   },
   "devDependencies": {
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.9",
     "sass": "^1.104.1",
     "typescript": "^7.0.2"
   },
